@@ -14,7 +14,7 @@ def listToInt(num):
 
 # options menu
 def menu():
-    print('\n---------- ARTIFACT SIMULATOR (SCUFFED) ----------\n'
+    print('\n----------- GENSHIN ARTIFACT SIMULATOR -----------\n'
           '|              1. FARM ARTIFACTS                 |\n'
           '|              2. ENHANCE ARTIFACTS              |\n'
           '|              3. VIEW INVENTORY                 |\n'
