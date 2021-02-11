@@ -5,12 +5,10 @@ from dictionaries import *
 global inventory
 inventory = {}
 
-
 # convert numStats list to int
 def listToInt(num):
     s = ''.join(map(str, num))
     return int(s)
-
 
 # options menu
 def menu():
@@ -40,7 +38,6 @@ def menu():
             else:
                 print('\nPlease enter a valid option.\n')
 
-
 # roll artifact set, type
 def artifact_roll(domain):
     sets = artifact_sets.get(domain).split(',')
@@ -48,12 +45,10 @@ def artifact_roll(domain):
     artifact_type = random.choice(artifact_types)
     return [artifact_set, artifact_type]
 
-
 # roll mainstat
 def mainstat_roll(artifactType):
     possible_main = mainstat_dict.get(artifactType).split(',')
     return random.choice(possible_main)
-
 
 # roll 4 substats
 def substats_roll():
@@ -69,7 +64,6 @@ def substats_roll():
         roll_list.append(roll)
 
     return roll_list
-
 
 # generates the artifact for the respective domain
 def artifact_gen(domain):
@@ -108,7 +102,6 @@ def continue_farm(domain):
             print('\nYou have exited the domain!')
             menu()
 
-
 # consolidated function for artifacts farming
 def farm_artifact():
     while True:
@@ -131,7 +124,6 @@ def farm_artifact():
             else:
                 print('\nPlease enter a valid option.\n')
 
-
 # view artifact inventory
 def view_artifacts():
     if bool(inventory) == False:
@@ -141,7 +133,6 @@ def view_artifacts():
         for artifact in inventory.values():
             print(str(index) + '. ' + str(artifact))
             index += 1
-
 
 # enhance selected artifact
 def enhance_artifact():
