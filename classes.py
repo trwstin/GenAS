@@ -18,7 +18,10 @@ class Artifact:
             if self.mainStat == mainStat:
                 index = round(self.enhances/4)
                 mainStatValue = mainStat_upgrades.get(self.mainStat).split(',')[index]
-                self.mainStatValue = '{:,.2f}'.format(mainStatValue)
+                if '.' in mainStatValue:
+                    self.mainStatValue = '{:.1f}%'.format(mainStatValue)
+                else:
+                    self.mainStatValue = round(mainStatValue)
 
     def add_stat(self):
         statList = [*substats_dict.keys()]
