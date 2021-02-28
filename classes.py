@@ -2,11 +2,11 @@ import random
 from dictionaries import *
 
 class Artifact:
-    def __init__(self, name, slot, mainStat, subStat):
+    def __init__(self, name, slot, mainStat, mainStatValue, subStat):
         self.name = name
         self.slot = slot
         self.mainStat = mainStat
-        self.mainStatValue = 0
+        self.mainStatValue = mainStatValue
         self.subStat = subStat
         self.enhances = 0
 
