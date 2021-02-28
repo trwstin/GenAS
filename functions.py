@@ -70,8 +70,9 @@ def artifact_gen(domain):
     artifact_index = len(inventory) + 1
     artifactPiece = artifact_roll(str(domain))
     mainStat = mainstat_roll(artifactPiece[1])
+    mainStatValue = mainStat_upgrades.get(mainStat).split(',')[0]
     subStats = substats_roll()
-    artifact = Artifact(artifactPiece[0], artifactPiece[1], mainStat, subStats)
+    artifact = Artifact(artifactPiece[0], artifactPiece[1], mainStat, mainStatValue, subStats)
 
     inventory[str(artifact_index)] = artifact
 
