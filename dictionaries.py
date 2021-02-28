@@ -10,7 +10,7 @@ artifact_sets = {'1': 'Thundering Fury,Thundersoother',
 mainstat_dict = {'Flower': 'HP',
                  'Feather': 'ATK',
                  'Timepiece': 'HP%,DEF%,ATK%,Elemental Mastery,Energy Recharge %',
-                 'Goblet': 'HP%,DEF%,ATK%,Elemental Mastery,Physical Damage %'
+                 'Goblet': 'HP%,DEF%,ATK%,Elemental Mastery,Physical Damage %,'
                            'Hydro Damage %,Cryo Damage %,Pyro Damage %,Electro Damage %,Geo Damage %,Anemo Damage %',
                  'Circlet': 'HP%,DEF%,ATK%,Elemental Mastery,'
                             'Crit Rate %,Crit Damage %,Healing Bonus %'}

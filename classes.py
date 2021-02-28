@@ -65,5 +65,5 @@ class Artifact:
 
     def __repr__(self):
         return f'A +{self.enhances} {self.name} {self.slot}, ' \
-               f'with {self.mainStat} Main Stat value of {self.mainStatValue}' \
+               f'with {self.mainStat} Main Stat value of {self.mainStatValue} ' \
                f'and the following Sub Stats: {self.subStat}'
