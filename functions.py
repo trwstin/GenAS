@@ -60,7 +60,7 @@ def substats_roll():
     for stat in stats_rolled:
         roll_values = substats_dict.get(stat).split(',')
         value = random.choice(roll_values)
-        roll = stat + ": " + value
+        roll = f"{stat}: {value}"
         roll_list.append(roll)
 
     return roll_list
@@ -79,7 +79,7 @@ def artifact_gen(domain):
     print('\n' + artifact.name +
           "\nSlot: " + str(artifact.slot) +
           "\nMain Stat: " + str(artifact.mainStat))
-    print(*[i for i in artifact.subStat], sep='\n')
+    print(*list(artifact.subStat), sep='\n')
     continue_farm(domain)
 
 # prompts to continue farming
@@ -127,13 +127,11 @@ def farm_artifact():
 
 # view artifact inventory
 def view_artifacts():
-    if bool(inventory) == False:
+    if not bool(inventory):
         print('\nYour inventory is empty!')
     else:
-        index = 1
-        for artifact in inventory.values():
-            print(str(index) + '. ' + str(artifact))
-            index += 1
+        for index, artifact in enumerate(inventory.values(), start=1):
+            print(f'{str(index)}. {str(artifact)}')
 
 # enhance selected artifact
 def enhance_artifact():
@@ -159,9 +157,9 @@ def enhance_artifact():
                         except (ValueError, TypeError, KeyError, IndexError):
                             print('\nPlease enter a valid option.\n')
                         else:
-                            if int(continueEnhance) == 1:
+                            if continueEnhance == 1:
                                 continue
-                            elif int(continueEnhance) == 2:
+                            elif continueEnhance == 2:
                                 enhance_artifact()
                             else:
                                 menu()

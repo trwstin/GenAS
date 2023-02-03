@@ -29,30 +29,27 @@ class Artifact:
         newStat = random.choice([i for i in statList if i not in currentStat])
         newStatValue = random.choice(substats_dict.get(newStat).split(','))
 
-        self.subStat.append(newStat + ': ' + newStatValue)
+        self.subStat.append(f'{newStat}: {newStatValue}')
         self.enhance_counter()
         self.upgrade_mainStat()
         print(f"\nYour artifact has been enhanced with a new substat, {newStat}!\n"
               f"{self.subStat}")
 
     def upgrade_stat(self):
-        index = 0
         upgradedStat = random.choice(self.subStat).split(':')[0]
         upgradedValue = random.choice(substats_dict.get(upgradedStat).split(','))
 
-        for stat in self.subStat:
+        for index, stat in enumerate(self.subStat):
             statName = stat.split(':')[0]
             if upgradedStat == statName:
                 oldStatValue = stat.split(': ')[1]
                 newStatValue = round(float(oldStatValue.replace('%', ''))
                                      + float(upgradedValue.replace('%', '')), 1)
-                enhancement = statName + ': ' + str(newStatValue).replace('.0', '')
+                enhancement = f'{statName}: ' + str(newStatValue).replace('.0', '')
                 if '%' in statName:
                     enhancement += '%'
                 self.subStat.insert(index, enhancement)
                 self.subStat.pop(index + 1)
-            index += 1
-
         self.enhance_counter()
         self.upgrade_mainStat()
         print(f"\nYour artifact\'s {upgradedStat} has been successfully enhanced!\n"
@@ -63,7 +60,7 @@ class Artifact:
             print("\nThis artifact has reached the maximum number of enhancements.")
         elif len(self.subStat) == 3:
             self.add_stat()
-        elif self.enhances < 20:
+        else:
             self.upgrade_stat()
 
     def __repr__(self):
